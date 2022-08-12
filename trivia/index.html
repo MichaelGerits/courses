@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            // TODO: Add code to check answers to questions
+            function valButt(e){
+                let button = e.target;
+                if(button.tagName == "BUTTON"){
+                    if(button.classList.contains("correct")){
+                        button.style.backgroundColor = "green";
+                        document.getElementById("P1Val").innerHTML = "correct";
+                    }
+                    else if(button.classList.contains("wrong")){
+                        button.style.backgroundColor = "red";
+                        document.getElementById("P1Val").innerHTML = "incorrect";
+                    }
+                }
+            }
+            function valText() {
+                // Selecting the input element and get its value
+                inputBar = document.getElementById("inputId");
+                let inputVal = inputBar.value.toLowerCase();
+                if(inputVal == "c")
+                {
+                    inputBar.style.backgroundColor = "green";
+                    document.getElementById("P2Val").innerHTML = "correct";
+                }
+                else{
+                    inputBar.style.backgroundColor = "red";
+                    document.getElementById("P2Val").innerHTML = "incorrect";
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <!-- TODO: Add multiple choice question here -->
+                <h3>What's Gayer?</h3>
+                <p id="P1Val"></p>
+                <div onclick="valButt(event)" class=" container">
+                    <button type="button" class="correct">You</button>
+                    <button type="button" class="wrong">Me</button>
+                    <button type="button" class="wrong">Ya mum</button>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <!-- TODO: Add free response question here -->
+                <form>
+                    <h3>Give me the third letter of the alfabet</h3>
+                    <p id="P2Val"></p>
+                    <button type="button" onclick="valText();">Submit</button>
+                    <input type="text" placeholder="answer..." id="inputId" autofocus>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
