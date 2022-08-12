@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    quoted
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Symbol</th>
+              <th scope="col">Price</th>
+            </tr>
+        </thead>
+        <tr scope="row">
+            <td>{{name}}</td>
+            <td>{{dic_symbol}}</td>
+            <td>{{price}}</td>
+        </tr>
+    </table>
+{% endblock %}

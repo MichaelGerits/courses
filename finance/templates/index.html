@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Buy
+{% endblock %}
+
+{% block main %}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Symbol</th>
+            <th scope="col">Price</th>
+            <th scope="col">Amount</th>
+            <th scope="col">total Price</th>
+            <th scope="col">transaction</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- TODO: Loop through the database entries to display them in this table -->
+        {% for stock in stocks %}
+        <tr scope="row">
+            <td>{{stock["name"]}}</td>
+            <td>{{stock["symbol"]}}</td>
+            <td>{{stock["price"]}}</td>
+            <td>{{stock["amount"]}}</td>
+            <td>{{stock["total_price"]}}</td>
+            <td>
+                <form action="/transaction" method="post">
+                    <input name="symbol" type="hidden" value="{{stock["symbol"]}}">
+                    <input autocomplete="off" class="form-control mx-auto w-auto" id="shares" name="shares" placeholder="#Amount..." type="number">
+                        <select id="trans_type" name="trans_type">
+                            <option value="BUY">Buy</option>
+                            <option value="SELL">Sell</option>
+                        </select>
+                    <input type="submit" value="confirm">
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    <tfoot>
+        <tr>
+            <td class="border-0 fw-bold text-end" colspan="4">CASH</td>
+            <td class="border-0 text-end">{{cash}}</td>
+        </tr>
+        <tr>
+            <td class="border-0 fw-bold text-end" colspan="4">TOTAL</td>
+            <td class="border-0 w-bold text-end">{{total}}</td>
+        </tr>
+    </tfoot>
+</table>
+{% endblock %}

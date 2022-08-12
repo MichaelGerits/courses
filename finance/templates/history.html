@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Buy
+{% endblock %}
+
+{% block main %}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Symbol</th>
+            <th scope="col">Price</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Type</th>
+            <th scope="col">Timestamp</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- TODO: Loop through the database entries to display them in this table -->
+        {% for transaction in history %}
+        <tr scope="row">
+            <td>{{transaction["name"]}}</td>
+            <td>{{transaction["symbol"]}}</td>
+            <td>{{transaction["price"]}}</td>
+            <td>{{transaction["amount"]}}</td>
+            <td>{{transaction["trans_type"]}}</td>
+            <td>{{transaction["timestamp"]}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
