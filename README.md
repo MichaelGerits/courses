@@ -1,5 +1,3 @@
-# courses
-### This is the repository where i upload the software projects that i've made while working on courses.
+# AE1110x
+### Some of the code i've written in order as challenges or to make my life easier during the course
 
-* ## CS50x
-* ## CS50: introduction to A.I. with python
