@@ -7,7 +7,7 @@ def getLayer(altitude):
     for layer in ISAlib.layers:
         if altitude >= layer.hBase and altitude <= layer.hCeil:
             return layer
-    print("out of bounds for calculation (up to 40km)")
+    print("out of bounds for calculation (up to 50km)")
     sys.exit()
 
 pressure = ISAlib.calc_pressure(altitude, getLayer(altitude))
